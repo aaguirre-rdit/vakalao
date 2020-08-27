@@ -4,7 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Home from "../scenes/home";
 import Welcome from "../scenes/welcome";
 import { AsyncStorage } from "react-native";
-
+import BottomTab from './bottomTabNavigation';
 
 const welcomeShown = async () => {
   return await AsyncStorage.getItem("@vakalao:WELCOME_SHOWN");
@@ -22,7 +22,7 @@ const mainNavigation = (props) => {
       headerMode={'none'}
       initialRouteName={props.initialRoute}
       >
-        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Home" component={BottomTab} />
         <Stack.Screen name="Welcome" component={Welcome} />
       </Stack.Navigator>
     </NavigationContainer>
