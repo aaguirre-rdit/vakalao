@@ -18,7 +18,10 @@ const mainNavigation = (props) => {
   console.log(props.initialRoute);
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName={props.initialRoute}>
+      <Stack.Navigator
+      headerMode={'none'}
+      initialRouteName={props.initialRoute}
+      >
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Welcome" component={Welcome} />
       </Stack.Navigator>

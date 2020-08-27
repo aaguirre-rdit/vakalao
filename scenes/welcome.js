@@ -8,12 +8,13 @@ import {StatusBar} from "expo-status-bar";
 const saveToken = async () => {
   return await AsyncStorage.setItem("@vakalao:WELCOME_SHOWN");
 };
+
 export default function Welcome() {
   //saveToken(); <---- UNCOMMENT  THIS LATER!
   return (
     <View style={styles.container}>
-      <Text>Welcome!</Text>
-      <StatusBar style="auto" />
+      <Text style={styles.welcomeText}>Welcome!</Text>
+
     </View>
   );
 }
@@ -21,8 +22,13 @@ export default function Welcome() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#F50057',
     alignItems: 'center',
     justifyContent: 'center',
+    height:'75%'
   },
+  welcomeText: {
+    color:'#fff',
+    fontSize:36
+  }
 });
