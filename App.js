@@ -9,6 +9,9 @@ import { AppLoading } from 'expo';
 const welcomeShown = async () => {
   return await AsyncStorage.getItem("@vakalao:WELCOME_SHOWN");
 };
+const UserContext = React.createContext({
+  userToken:'123' // CHANGE THIS LATER!
+});
 
 export default class App extends React.Component{
   state = {
@@ -16,8 +19,8 @@ export default class App extends React.Component{
     initialRoute : undefined
   };
   initialize = async () => {
-    let  hasToken = await AsyncStorage.getItem("@vakalao:WELCOME_SHOWN");
-    const initialRoute = hasToken ? "Home" : "Welcome";
+    let  hasUsedBefore = await AsyncStorage.getItem("@vakalao:WELCOME_SHOWN");
+    const initialRoute = hasUsedBefore ? "Home" : "Welcome";
     this.setState({
       initialRoute
     })
@@ -36,7 +39,9 @@ export default class App extends React.Component{
         />
       ); }
     return (
-      <MainNavigation initialRoute={this.state.initialRoute}/>
+      <UserContext.Provider>
+        <MainNavigation initialRoute={this.state.initialRoute}/>
+      </UserContext.Provider>
     );
 
   }
