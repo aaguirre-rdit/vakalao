@@ -6,9 +6,9 @@ const Amount = styled(Text)`
   
 `;
 const Bucket = ({data}) => {
-  console.log({data});
+
   return(
-    <Card style={styles.card}>
+    <Card style={styles.card} >
       <TouchableOpacity
         onPress={()=>{alert('Hi')}}
       >
