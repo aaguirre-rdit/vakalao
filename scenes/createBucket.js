@@ -61,6 +61,24 @@ export default function CreateBucket() {
         >Submit</Text>
       </Button>
       </Form>
+      <Text
+        style={{
+          marginTop: 40,
+          textAlign:'center'
+        }}
+      >or</Text>
+      <Button
+        rounded
+        primary
+        style={
+          {...styles.submitBtn,
+          width:200,
+          backgroundColor:'#00838f'}}>
+        <Text
+          style={styles.submitBtnText}
+        >Add existing bucket</Text>
+      </Button>
+
     </Content>
   );
 }
