@@ -3,18 +3,22 @@ import { StyleSheet, Text } from 'react-native';
 import { Content, Form, Item, Input, Label, Picker, Icon, Button } from "native-base";
 
 import {SceneTitle} from '../components/textComponents'
-
+import SyncBucketModal from '../components/SyncBucketModal';
 
 export default function CreateBucket() {
-  const [newBucket, setBucket] = useState({});
+  const [newBucket, setBucket] = useState({
+  });
+  const [modalVisible, setModalVisible] = useState(false);
   const updateValue = (value,key) => {
     let updated = newBucket;
     updated[key] = value;
     setBucket({updated});
   };
+
   return (
     <Content contentContainerStyle={styles.container}>
       <SceneTitle>New bucket</SceneTitle>
+      <SyncBucketModal modalVisible={modalVisible} setModalVisible={setModalVisible}/>
       <Form>
         <Item
           style={styles.item}
@@ -55,6 +59,7 @@ export default function CreateBucket() {
         style={styles.submitBtn}
         rounded
         primary
+
       >
         <Text
           style={styles.submitBtnText}
@@ -70,6 +75,7 @@ export default function CreateBucket() {
       <Button
         rounded
         primary
+        onPress={()=>setModalVisible(true)}
         style={
           {...styles.submitBtn,
           width:200,
