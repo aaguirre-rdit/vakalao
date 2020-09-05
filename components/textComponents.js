@@ -14,7 +14,16 @@ const InstructionText = styled(Text)`
   color: #333;
   lineHeight:20px;
 `;
+
+const AmountText = styled(Text)`
+  font-size: 30px;
+  color: ${props => props.amount > 0 ? 'green' : 'red'}
+  text-align:right;
+  flex:1;
+  font-weight:bold;
+`;
 module.exports ={
   SceneTitle,
-  InstructionText
+  InstructionText,
+  AmountText
 };

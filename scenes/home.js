@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {StyleSheet, Text, ScrollView, View, FlatList, TouchableOpacity} from "react-native";
-import {SceneTitle} from '../components/textComponents';
+import {SceneTitle, AmountText} from '../components/textComponents';
 import {Card, CardItem} from "native-base";
 
 export default function Home() {
@@ -53,7 +53,7 @@ export default function Home() {
             <Text style={styles.header}>{item.title}</Text>
           </CardItem>
           <CardItem>
-            <Text>{`${item.amount} ${item.currency}`}</Text>
+            <AmountText amount={item.amount}>{`${item.amount} ${item.currency}`}</AmountText>
           </CardItem>
         </TouchableOpacity>
       </Card>
