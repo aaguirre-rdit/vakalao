@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {StyleSheet, Text, ScrollView, View, FlatList, TouchableOpacity} from "react-native";
-
+import {SceneTitle} from '../components/textComponents';
 import {Card, CardItem} from "native-base";
 
 export default function Home() {
@@ -61,7 +61,7 @@ export default function Home() {
   };
   return (
     <View style={{padding:20, paddingTop: 50, flex:1, display:'flex'}}>
-      <Text style={styles.titleStyle}>Buckets</Text>
+      <SceneTitle style={styles.titleStyle}>Buckets</SceneTitle>
       <FlatList
         data={buckets}
         keyExtractor={bucket=> {console.log(bucket.key)}}
