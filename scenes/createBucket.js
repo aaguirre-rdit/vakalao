@@ -90,7 +90,8 @@ const styles = StyleSheet.create({
     alignItems: 'stretch',
     display:'flex',
     padding:20,
-    paddingRight:30
+    paddingRight:30,
+    paddingTop:50
   },
   item:{
     height:60

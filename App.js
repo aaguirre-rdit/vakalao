@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler';
 import * as React from 'react';
 import MainNavigation from './navigations/mainNavigation';
-
+import * as Font from 'expo-font';
 import { AsyncStorage } from "react-native";
 import { AppLoading } from 'expo';
 
@@ -24,8 +24,14 @@ export default class App extends React.Component{
     this.setState({
       initialRoute
     })
+    await Font.loadAsync({
+      Roboto: require('native-base/Fonts/Roboto.ttf'),
+      Roboto_medium: require('native-base/Fonts/Roboto_medium.ttf'),
+    });
 
   };
+
+
   render()
   {
 
