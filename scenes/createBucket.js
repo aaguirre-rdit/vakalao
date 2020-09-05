@@ -1,11 +1,17 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { Content, Form, Item, Input, Label, Picker, Icon } from "native-base";
+import React, {useEffect, useState} from 'react';
+import { StyleSheet, Text } from 'react-native';
+import { Content, Form, Item, Input, Label, Picker, Icon, Button } from "native-base";
 
-import {StatusBar} from "expo-status-bar";
 import {SceneTitle} from '../components/textComponents'
 
+
 export default function CreateBucket() {
+  const [newBucket, setBucket] = useState({});
+  const updateValue = (value,key) => {
+    let updated = newBucket;
+    updated[key] = value;
+    setBucket({updated});
+  };
   return (
     <Content contentContainerStyle={styles.container}>
       <SceneTitle>New bucket</SceneTitle>
@@ -14,7 +20,9 @@ export default function CreateBucket() {
           style={styles.item}
           floatingLabel>
           <Label>Bucket Name</Label>
-          <Input/>
+          <Input
+            onBlur={(text) => updateValue(text, 'name')}
+          />
         </Item>
       <Item
         floatingLabel
@@ -24,6 +32,7 @@ export default function CreateBucket() {
       </Item>
         <Item
           picker
+
           >
 
           <Picker
@@ -42,6 +51,15 @@ export default function CreateBucket() {
             <Picker.Item label="Japanese Yen" value="jpy" />
           </Picker>
         </Item>
+      <Button
+        style={styles.submitBtn}
+        rounded
+        primary
+      >
+        <Text
+          style={styles.submitBtnText}
+        >Submit</Text>
+      </Button>
       </Form>
     </Content>
   );
@@ -58,5 +76,21 @@ const styles = StyleSheet.create({
   },
   item:{
     height:60
+  },
+  submitBtn:{
+    backgroundColor:'#bc477b',
+    width:100,
+    alignSelf:'center',
+    marginTop:40,
+    display:'flex',
+    justifyContent:'center'
+  },
+  submitBtnText:{
+    color:'#fff',
+    textAlign:'center',
+    fontSize:16,
+    fontWeight: '500',
+    margin:'auto'
+
   }
 });
