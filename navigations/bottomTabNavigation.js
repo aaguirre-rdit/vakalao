@@ -2,7 +2,9 @@ import React from 'react';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import Home from '../scenes/home';
 import CreateBucket from "../scenes/createBucket";
-import { MaterialCommunityIcons, MaterialIcons } from 'react-native-vector-icons';
+import Profile from '../scenes/profile';
+import { MaterialCommunityIcons, MaterialIcons, FontAwesome } from 'react-native-vector-icons';
+
 const Tab = createMaterialBottomTabNavigator();
 
 const bottomTab = () => {
@@ -30,6 +32,16 @@ const bottomTab = () => {
           tabBarLabel: '',
           tabBarIcon: ({ color }) => (
             <MaterialIcons name="add" color={color} size={26} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={Profile}
+        options={{
+          tabBarLabel: '',
+          tabBarIcon: ({ color }) => (
+            <FontAwesome name="user-circle-o" color={color} size={26} />
           ),
         }}
       />
