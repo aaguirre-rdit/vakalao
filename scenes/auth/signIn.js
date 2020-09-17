@@ -11,7 +11,8 @@ const  SignIn = (props) => {
       <Form style={styles.formContainer}>
         <Text
           style={{
-            textAlign:'center'
+            textAlign:'center',
+            fontWeight:'bold'
           }}
         >Sign In</Text>
         <Item fixedLabel
@@ -113,7 +114,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     height:'75%',
     padding:20,
-    paddingTop:50
+    paddingTop:50,
   },
   textContainer: {
     height:'80%',
@@ -126,7 +127,16 @@ const styles = StyleSheet.create({
     backgroundColor:'#fff',
     paddingVertical:30,
     paddingHorizontal:5,
-    borderRadius: 5
+    borderRadius: 5,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.20,
+    shadowRadius: 1.41,
+
+    elevation: 2,
   },
   itemContainer:{
     display:'flex',
