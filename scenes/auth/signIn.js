@@ -123,7 +123,6 @@ const styles = StyleSheet.create({
     padding:'auto'
   },
   formContainer:{
-    flex:1,
     backgroundColor:'#fff',
     paddingVertical:30,
     paddingHorizontal:5,
