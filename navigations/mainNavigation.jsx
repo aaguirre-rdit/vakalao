@@ -4,8 +4,8 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Home from "../scenes/home";
 import Welcome from "../scenes/welcome";
 import { AsyncStorage } from "react-native";
-import BottomTab from './bottomTabNavigation';
-
+import BottomTab from "./bottomTabNavigation";
+import SignIn from "../scenes/auth/signIn";
 const welcomeShown = async () => {
   return await AsyncStorage.getItem("@vakalao:WELCOME_SHOWN");
 };
@@ -14,16 +14,18 @@ const Stack = createStackNavigator();
 
 const initialRoute = !welcomeShown() ? "Home" : "Welcome";
 
-const mainNavigation = (props) => {
+const mainNavigation = props => {
   console.log(props.initialRoute);
   return (
     <NavigationContainer>
       <Stack.Navigator
-      headerMode={'none'}
-      initialRouteName={props.initialRoute}
+        headerMode={"none"}
+        initialRouteName={props.initialRoute}
       >
-        <Stack.Screen name="Home" component={BottomTab} />
+
         <Stack.Screen name="Welcome" component={Welcome} />
+        <Stack.Screen name="SignIn" component={SignIn} />
+        <Stack.Screen name="Home" component={BottomTab} />
       </Stack.Navigator>
     </NavigationContainer>
   );

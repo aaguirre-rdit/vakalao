@@ -9,11 +9,10 @@ const saveToken = async () => {
   return await AsyncStorage.setItem("@vakalao:WELCOME_SHOWN");
 };
 const onSignInClick = (navigator) => {
-  navigator.navigate('Home')
+  navigator.navigate('SignIn')
 };
 export default function Welcome(props) {
   //saveToken(); <---- UNCOMMENT  THIS LATER!
-  console.log('hey')
   return (
     <View style={styles.container}>
       <View style={styles.textContainer}>
