@@ -1,7 +1,7 @@
 import React , {useState, useEffect} from 'react';
 import { StyleSheet } from 'react-native';
 import { View, Form, Button, Text} from 'native-base';
-const  SignIn = (props) => {
+const  SignUp = (props) => {
   return (
     <View style={styles.container}>
       <Text>Sign In</Text>
@@ -42,4 +42,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default SignIn;
+export default SignUp;

@@ -6,6 +6,8 @@ import Welcome from "../scenes/welcome";
 import { AsyncStorage } from "react-native";
 import BottomTab from "./bottomTabNavigation";
 import SignIn from "../scenes/auth/signIn";
+import SignUp from "../scenes/auth/signUp";
+
 const welcomeShown = async () => {
   return await AsyncStorage.getItem("@vakalao:WELCOME_SHOWN");
 };
@@ -25,6 +27,7 @@ const mainNavigation = props => {
 
         <Stack.Screen name="Welcome" component={Welcome} />
         <Stack.Screen name="SignIn" component={SignIn} />
+        <Stack.Screen name="SignUp" component={SignUp} />
         <Stack.Screen name="Home" component={BottomTab} />
       </Stack.Navigator>
     </NavigationContainer>

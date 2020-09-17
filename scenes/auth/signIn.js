@@ -2,6 +2,8 @@ import React , {useState, useEffect} from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import {FontAwesome} from 'react-native-vector-icons';
 import { View, Form, Button, Text, Item, Label, Input, Icon} from 'native-base';
+import {navigateTo} from '../../utils/navigationUtils';
+
 const  SignIn = (props) => {
   return (
     <View style={styles.container}>
@@ -74,14 +76,31 @@ const  SignIn = (props) => {
           </Button>
         </View>
       </Form>
-      <Button onPress={()=>props.navigation.navigate('Home')}>
+      <View style={{
+        flexDirection:'row',
+        alignSelf:'center',
+        width:220,
+        margin:'auto',
+        justifyContent:'space-around',
+        paddingVertical: 5,
+      }}>
+        <Text
+          style={styles.smallTxt}
+        >
+        Don't have an account?
+        </Text>
+        <TouchableOpacity
+          onPress={()=>navigateTo(props.navigation,'SignUp')}
+        >
+          <Text
+            style={{...styles.smallTxt,fontWeight: 'bold'}}
+          >
+            Sign Up
+          </Text>
+        </TouchableOpacity>
+      </View>
+      <Button onPress={()=>navigateTo(props.navigation,'Home')}>
         <Text>Go home</Text>
-      </Button>
-      <Button onPress={()=>props.navigation.navigate('Welcome')}>
-        <Text>Go back</Text>
-      </Button>
-      <Button onPress={()=>props.navigation.navigate('SignUp')}>
-        <Text></Text>
       </Button>
     </View>
   )
@@ -122,7 +141,8 @@ const styles = StyleSheet.create({
     borderColor:'#aaa',
     borderWidth:0.5,
     borderRadius:5,
-    flex:1
+    flex:1,
+    maxHeight:30
   },
   forgotPW:{
     fontSize:13,
@@ -166,6 +186,10 @@ const styles = StyleSheet.create({
     alignSelf:'center',
     paddingRight:10,
     marginVertical: 5
+  },
+  smallTxt:{
+    color:'#fff',
+    fontSize:13
   }
 });
 
