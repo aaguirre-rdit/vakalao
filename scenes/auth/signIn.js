@@ -40,6 +40,11 @@ const  SignIn = (props) => {
               Forgot your password?</Text>
             </TouchableOpacity>
         </Item>
+        <Button
+          style={styles.submitBtn}
+          onPress={()=>navigateTo(props.navigation,'Home')}>
+          <Text>Sign in</Text>
+        </Button>
         <View
           style={{
             display:'flex',
@@ -100,9 +105,7 @@ const  SignIn = (props) => {
           </Text>
         </TouchableOpacity>
       </View>
-      <Button onPress={()=>navigateTo(props.navigation,'Home')}>
-        <Text>Go home</Text>
-      </Button>
+
     </View>
   )
 };
@@ -137,6 +140,12 @@ const styles = StyleSheet.create({
     shadowRadius: 1.41,
 
     elevation: 2,
+  },
+  submitBtn:{
+    backgroundColor:'#81b9bf',
+    borderRadius:5,
+    alignSelf:'center',
+    marginVertical:10
   },
   itemContainer:{
     display:'flex',

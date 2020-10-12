@@ -39,15 +39,21 @@ const  SignUp = (props) => {
             secureTextEntry={true}
             style={styles.formTextInput}
             placeholder={'Password'}/>
-          <TouchableOpacity
-            onPress={()=>alert('HAHA')}
-          >
-            <Text
-              style={styles.forgotPW}
-            >
-              Forgot your password?</Text>
-          </TouchableOpacity>
         </Item>
+        <Item fixedLabel
+              last
+              style={styles.itemContainer}>
+          <Label>Password</Label>
+          <Input
+            secureTextEntry={true}
+            style={styles.formTextInput}
+            placeholder={'Confirm password'}/>
+        </Item>
+        <Button
+          style={styles.submitBtn}
+          onPress={()=>navigateTo(props.navigation,'Home')}>
+          <Text>Sign up</Text>
+        </Button>
         <View
           style={{
             display:'flex',
@@ -108,9 +114,7 @@ const  SignUp = (props) => {
           </Text>
         </TouchableOpacity>
       </View>
-      <Button onPress={()=>navigateTo(props.navigation,'Home')}>
-        <Text>Go home</Text>
-      </Button>
+
     </View>
   )
 };
@@ -150,7 +154,7 @@ const styles = StyleSheet.create({
     display:'flex',
     flexDirection:'column',
     padding:10,
-    height:100,
+    height:70,
     alignItems:'stretch',
     borderColor:'transparent'
   },
@@ -177,6 +181,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 5,
     alignSelf: 'center',
     color: '#A2A2A2'
+  },
+  submitBtn:{
+    backgroundColor:'#81b9bf',
+    borderRadius:5,
+    alignSelf:'center',
+    marginVertical:10
   },
   socialContainer:{
     padding:10,
