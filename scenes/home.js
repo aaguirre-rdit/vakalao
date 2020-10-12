@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import {StyleSheet, Text, ScrollView, View, FlatList, TouchableOpacity} from "react-native";
 import {SceneTitle, AmountText} from '../components/textComponents';
 import {Card, CardItem} from "native-base";
-
+import { API_URL } from '../config/config';
+import axios from 'axios';
 export default function Home() {
   const [buckets, setBuckets] = useState([
     {
@@ -42,7 +43,11 @@ export default function Home() {
       key:1
     }
   ]);
-
+  // useEffect(()=>{
+  //   axios.get(`${API_URL}buckets/`)
+  //     .then(res => res.json())
+  //     .then(buckets => setBuckets(buckets))
+  // });
   const renderItem = ({item}) => {
     return(
       <Card style={styles.card} >
