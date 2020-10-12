@@ -1,0 +1,21 @@
+{
+  "buckets": [
+    {
+      "id": 1,
+      "title": "hello",
+      "users": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        }
+      ],
+      "amount": "200",
+      "currency": "EUR"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
