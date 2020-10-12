@@ -2,6 +2,8 @@ import React , {useState, useEffect} from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import {FontAwesome} from 'react-native-vector-icons';
 import { View, Form, Button, Text, Item, Label, Input, Icon} from 'native-base';
+import {primaryColor, white, lightGray, black, secondaryDarkColor} from '../../assets/colors';
+
 import {navigateTo} from '../../utils/navigationUtils';
 
 const  SignIn = (props) => {
@@ -112,7 +114,7 @@ const  SignIn = (props) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F50057',
+    backgroundColor: primaryColor,
     alignItems: 'stretch',
     justifyContent: 'center',
     height:'75%',
@@ -127,11 +129,11 @@ const styles = StyleSheet.create({
     padding:'auto'
   },
   formContainer:{
-    backgroundColor:'#fff',
+    backgroundColor:white,
     paddingVertical:30,
     paddingHorizontal:5,
     borderRadius: 5,
-    shadowColor: "#000",
+    shadowColor: black,
     shadowOffset: {
       width: 0,
       height: 1,
@@ -142,7 +144,7 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   submitBtn:{
-    backgroundColor:'#81b9bf',
+    backgroundColor:secondaryDarkColor,
     borderRadius:5,
     alignSelf:'center',
     marginVertical:10
@@ -156,7 +158,7 @@ const styles = StyleSheet.create({
     borderColor:'transparent'
   },
   formTextInput:{
-    borderColor:'#aaa',
+    borderColor:lightGray,
     borderWidth:0.5,
     borderRadius:5,
     flex:1,
@@ -164,11 +166,11 @@ const styles = StyleSheet.create({
   },
   forgotPW:{
     fontSize:13,
-    color:'#b1006a',
+    color:primaryColor,
     marginTop:3
   },
   hairline:{
-    backgroundColor: '#A2A2A2',
+    backgroundColor: lightGray,
     height: 2,
     width: '40%'
   },
@@ -177,7 +179,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     paddingHorizontal: 5,
     alignSelf: 'center',
-    color: '#A2A2A2'
+    color: lightGray
   },
   socialContainer:{
     padding:10,
@@ -187,7 +189,7 @@ const styles = StyleSheet.create({
   },
   socialGoogleBtn:{
     width:'80%',
-    backgroundColor:'#fff',
+    backgroundColor:white,
     borderColor:'red',
     borderWidth: 1,
     textAlign: 'center',
@@ -197,7 +199,7 @@ const styles = StyleSheet.create({
   },
   socialFbBtn:{
     width:'80%',
-    backgroundColor:'#fff',
+    backgroundColor:white,
     borderColor:'#3b5998',
     borderWidth: 1,
     textAlign: 'center',
@@ -206,7 +208,7 @@ const styles = StyleSheet.create({
     marginVertical: 5
   },
   smallTxt:{
-    color:'#fff',
+    color:white,
     fontSize:13
   }
 });
