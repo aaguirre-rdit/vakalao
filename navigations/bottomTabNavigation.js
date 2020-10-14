@@ -1,6 +1,7 @@
 import React from 'react';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import Home from '../scenes/home';
+import BucketNavigation from '../navigations/bucketNavigation';
 import CreateBucket from "../scenes/createBucket";
 import Profile from '../scenes/profile';
 import { MaterialCommunityIcons, MaterialIcons, FontAwesome } from 'react-native-vector-icons';
@@ -17,7 +18,7 @@ const bottomTab = () => {
     >
       <Tab.Screen
       name="Home"
-      component={Home}
+      component={BucketNavigation}
       options={{
         tabBarLabel: '',
         tabBarIcon: ({ color }) => (

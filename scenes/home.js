@@ -4,43 +4,44 @@ import {SceneTitle, AmountText} from '../components/textComponents';
 import {Card, CardItem} from "native-base";
 import { API_URL } from '../config/config';
 import axios from 'axios';
-export default function Home() {
+export default function Home(props) {
+  const { navigation } = props;
   const [buckets, setBuckets] = useState([
     {
       title: "Bucket 1",
       amount: -325.4,
       currency: "$",
-      key:1
+      id:1
     },
     {
       title: "Bucket 2",
       amount: 200.4,
       currency: "$",
-      key:1
+      id:2
     },
     {
       title: "Bucket 3",
       amount: 200.4,
       currency: "$",
-      key:1
+      id:3
     },
     {
       title: "Bucket 4",
       amount: 200.4,
       currency: "$",
-      key:1
+      id:4
     },
     {
       title: "Bucket 5",
       amount: 200.4,
       currency: "$",
-      key:1
+      id:5
     },
     {
       title: "Bucket 6",
       amount: 200.4,
       currency: "$",
-      key:1
+      id:6
     }
   ]);
   // useEffect(()=>{
@@ -49,10 +50,11 @@ export default function Home() {
   //     .then(buckets => setBuckets(buckets))
   // });
   const renderItem = ({item}) => {
+
     return(
       <Card style={styles.card} >
         <TouchableOpacity
-          onPress={()=>{alert('Hi')}}
+          onPress={()=>{navigation.navigate('Bucket', {bucketId:item.id})}}
         >
           <CardItem header>
             <Text style={styles.header}>{item.title}</Text>
@@ -69,7 +71,7 @@ export default function Home() {
       <SceneTitle style={styles.titleStyle}>Buckets</SceneTitle>
       <FlatList
         data={buckets}
-        keyExtractor={bucket=> {console.log(bucket.key)}}
+        keyExtractor={bucket=> {console.log(bucket.id)}}
         renderItem={renderItem}/>
 
     </View>
