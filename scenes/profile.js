@@ -1,8 +1,13 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import { Container, Icon, Button, Text, Right, Thumbnail, Card, CardItem, Body} from 'native-base';
 import { SceneTitle } from '../components/textComponents';
+import {useSafeArea} from "react-native-safe-area-context";
 
 export default function Profile() {
+   let [profile, setProfile] = useState({
+     name:'John Doe',
+    image:'https://lh3.googleusercontent.com/proxy/-wlM5QbiCG9noRJi0sDe0j-XOQX2zy_XikY5P8xRbvx85U7FiatP5FuwNVzjZ71-uj-xMwnrjgVURqjmeEQ'
+  });
   return (
     <Container
       style={{padding:20}}
@@ -12,13 +17,15 @@ export default function Profile() {
       > My profile </SceneTitle>
       <Card>
         <CardItem >
-
+          <Thumbnail
+            large
+            source={{uri: profile.image}} />
           <Body style={{
             padding:10,
             alignItems:'flex-end'
           }} >
             <Text>
-              Name
+              {profile.name}
             </Text>
           <Text>
             Location
