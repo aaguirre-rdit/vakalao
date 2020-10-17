@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { Container, Icon, Button, Text, Right, Thumbnail, Card, CardItem, Body, Label} from 'native-base';
+import { Container, Icon, Button, Text, Right, Thumbnail, Card, CardItem, Body, Label, View} from 'native-base';
 import { SceneTitle } from '../components/textComponents';
 import {useSafeArea} from "react-native-safe-area-context";
 import styled from 'styled-components';
@@ -14,15 +14,16 @@ export default function Profile() {
      email:'johndoe@gmail.com',
     image:'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80'  });
   return (
-    <Container
-      style={{padding:20}}
-      contentContainerStyle={styles.container}>
-      <SceneTitle
-        style={{paddingTop:30}}
-      > My profile </SceneTitle>
+    <View
+      style={{padding:20, paddingTop:60,flex:1}}>
+
+
       <Card
         style={styles.card}
       >
+        <SceneTitle
+          style={{paddingTop:30}}
+        > My profile </SceneTitle>
         <CardItem >
           <Thumbnail
             large
@@ -110,7 +111,7 @@ export default function Profile() {
           </Button>
         </CardItem>
       </Card>
-    </Container>
+    </View>
   )
 };
 
@@ -122,7 +123,8 @@ const styles = {
     display:'flex'
   },
   card:{
-    minHeight: 200
+    minHeight: 200,
+    padding:5
   },
   cardBody:{
     paddingVertical:10,

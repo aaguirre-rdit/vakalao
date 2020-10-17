@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+
 import {
   Container,
   Text,
@@ -10,12 +11,25 @@ import {
   View
 } from "native-base";
 import { ScrollView } from "react-native";
-import { primaryColor, white } from "../assets/colors";
+import { primaryColor, white,secondaryDarkColor } from "../assets/colors";
+import { AmountText } from '../components/textComponents';
+import NewTransaction from '../components/newTransactionModal';
 const BucketView = props => {
   const { navigation, route } = props;
   const { bucketId } = route.params;
   const [bucket, setBucket] = useState();
+
   const [isReady, setReady] = useState(false);
+  let getAmount = () => {
+    let amount = 0;
+    if (bucket.transactions){
+
+      bucket.transactions.forEach(transaction => {
+        amount += transaction.amount;
+      })
+    }
+    return amount;
+  };
   const [newTransOpen, setNewTransOpen] = useState(false);
   useEffect(() => {
     setTimeout(() => {
@@ -51,19 +65,24 @@ const BucketView = props => {
 
         <Container style={styles.bucketMain}>
           <Title>Bucket {bucketId}</Title>
-          <Text>{bucket.amount}</Text>
+          <AmountText>{getAmount()}</AmountText>
         </Container>
 
     </ScrollView>
           <Fab
             active={newTransOpen}
-            style={{ backgroundColor: "#5067FF" }}
+            style={{ backgroundColor: secondaryDarkColor }}
             position="bottomRight"
             onPress={() => setNewTransOpen(!newTransOpen)}
           >
             <Icon name="add" />
 
           </Fab>
+          <NewTransaction
+            bucketId={bucketId}
+            isActive={newTransOpen}
+            setVisible={setNewTransOpen}
+          />
         </View>
       ) : (
         <Spinner />

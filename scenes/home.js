@@ -71,7 +71,7 @@ export default function Home(props) {
       <SceneTitle style={styles.titleStyle}>Buckets</SceneTitle>
       <FlatList
         data={buckets}
-        keyExtractor={bucket=> {console.log(bucket.id)}}
+        keyExtractor={bucket=> ("b"+bucket.id.toString())}
         renderItem={renderItem}/>
 
     </View>
