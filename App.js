@@ -5,7 +5,6 @@ import * as Font from 'expo-font';
 import { AsyncStorage } from "react-native";
 import { AppLoading } from 'expo';
 
-
 const welcomeShown = async () => {
   return await AsyncStorage.getItem("@vakalao:WELCOME_SHOWN");
 };
@@ -27,6 +26,7 @@ export default class App extends React.Component{
     await Font.loadAsync({
       Roboto: require('native-base/Fonts/Roboto.ttf'),
       Roboto_medium: require('native-base/Fonts/Roboto_medium.ttf'),
+      'AvenirNext-Bold':require('./assets/fonts/AvenirNext-Bold.ttf')
     });
 
   };
@@ -34,8 +34,6 @@ export default class App extends React.Component{
 
   render()
   {
-
-    console.log(welcomeShown());
     if (!this.state.reqIsReady) {
       return (
         <AppLoading
